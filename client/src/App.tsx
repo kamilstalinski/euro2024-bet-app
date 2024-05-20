@@ -1,8 +1,12 @@
 import { Routes, Route } from "react-router-dom";
+import axios from "axios";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import AdminPanel from "./pages/AdminPanel";
+
+axios.defaults.baseURL = "http://localhost:8000/auth";
+axios.defaults.withCredentials = true;
 
 function App() {
   return (
