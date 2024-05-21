@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { RegisterSchema } from "@/schema";
-import { useForm } from "react-hook-form";
+import { Message, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import { z } from "zod";
@@ -31,22 +31,23 @@ export default function Signup() {
   });
 
   const onSubmit = async (data: z.infer<typeof RegisterSchema>) => {
-    const { username, email, password, confirmPassword } = data;
+    const { username, email, password } = data;
     try {
       const { data } = await axios.post("/signup", {
         username,
         email,
         password,
-        confirmPassword,
       });
       if (data.error) {
         toast.error(data.error);
       } else {
-        toast.success("Register succesful. Welcome!");
+        console.log(data);
+        toast.success("Zarejestrowano pomyślnie. Witamy!");
         navigate("/login");
       }
     } catch (error) {
       console.log(error);
+      toast.error(error as Message);
     }
   };
 
@@ -54,7 +55,7 @@ export default function Signup() {
     <div className='w-full h-screen flex items-center justify-center'>
       <CardWrapper
         label='Stwórz swoje konto'
-        title='Zarejestruj'
+        title='Zarejestruj się'
         backButtonHref='/login'
         backButtonLabel='Masz juz swoje konto? Zaloguj się tutaj'
       >
@@ -83,7 +84,7 @@ export default function Signup() {
                 name='username'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Nazwa u</FormLabel>
+                    <FormLabel>Nazwa uzytkownika</FormLabel>
                     <FormControl>
                       <Input {...field} type='text' placeholder='John Snow' />
                     </FormControl>
@@ -96,7 +97,7 @@ export default function Signup() {
                 name='password'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Password</FormLabel>
+                    <FormLabel>Hasło</FormLabel>
                     <FormControl>
                       <Input {...field} type='password' placeholder='******' />
                     </FormControl>
@@ -109,7 +110,7 @@ export default function Signup() {
                 name='confirmPassword'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Confirm password</FormLabel>
+                    <FormLabel>Powtórz hasło</FormLabel>
                     <FormControl>
                       <Input {...field} type='password' placeholder='******' />
                     </FormControl>
@@ -119,7 +120,7 @@ export default function Signup() {
               />
             </div>
             <Button type='submit' className='w-full'>
-              Register
+              Utwórz konto
             </Button>
           </form>
         </Form>
