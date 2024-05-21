@@ -12,14 +12,12 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { LoginSchema } from "@/schema";
-import { Message, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import { z } from "zod";
-import { useState } from "react";
 
 export default function Login() {
-  const [pending, setPending] = useState(false);
   const navigate = useNavigate();
 
   const form = useForm({
@@ -31,10 +29,9 @@ export default function Login() {
   });
 
   const onSubmit = async (data: z.infer<typeof LoginSchema>) => {
-    setPending(true);
     const { email, password } = data;
     try {
-      const { data } = await axios.post("/signup", {
+      const { data } = await axios.post("/login", {
         email,
         password,
       });
@@ -43,12 +40,10 @@ export default function Login() {
       } else {
         console.log(data);
         toast.success("Zalogowano pomyślnie. Witamy!");
-        navigate("/home");
-        setPending(false);
+        navigate("/");
       }
     } catch (error) {
       console.log(error);
-      toast.error(error as Message);
     }
   };
 
@@ -57,7 +52,7 @@ export default function Login() {
       <CardWrapper
         label='Zaloguj się do swojego konta'
         title='Zaloguj się'
-        backButtonHref='/login'
+        backButtonHref='/signup'
         backButtonLabel='Nie masz jeszcze konta? Załóz je tutaj'
       >
         <Form {...form}>
@@ -94,7 +89,7 @@ export default function Login() {
                 )}
               />
             </div>
-            <Button type='submit' className='w-full' disabled={pending}>
+            <Button type='submit' className='w-full'>
               Zaloguj
             </Button>
           </form>

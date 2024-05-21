@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { RegisterSchema } from "@/schema";
-import { Message, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import { z } from "zod";
@@ -42,12 +42,13 @@ export default function Signup() {
         toast.error(data.error);
       } else {
         console.log(data);
-        toast.success("Zarejestrowano pomyślnie. Witamy!");
+        toast.success(
+          "Zarejestrowano pomyślnie. Zaloguj się do swojego konta!",
+        );
         navigate("/login");
       }
     } catch (error) {
       console.log(error);
-      toast.error(error as Message);
     }
   };
 
