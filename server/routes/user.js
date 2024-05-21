@@ -12,7 +12,7 @@ router.use(
 );
 
 router.post("/signup", async (req, res) => {
-  const { username, email, password } = req.body;
+  const { username, email, password, confirmPassword } = req.body;
   const user = await User.findOne({ email });
   if (user) {
     return res.json({ message: "User already exist" });
@@ -23,6 +23,7 @@ router.post("/signup", async (req, res) => {
     username,
     email,
     password: hashedPassword,
+    confirmPassword: hashedPassword,
   });
 
   await newUser.save();

@@ -1,31 +1,47 @@
 import axios from "axios";
-import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { TRegister } from "../types/TRegister";
+import CardWrapper from "@/components/auth/card-wrapper";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { RegisterSchema } from "@/schema";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Button } from "@/components/ui/button";
+import { z } from "zod";
 
 export default function Signup() {
-  const [data, setData] = useState<TRegister>({
-    username: "",
-    email: "",
-    password: "",
-  });
-
   const navigate = useNavigate();
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const { username, email, password } = data;
+  const form = useForm({
+    resolver: zodResolver(RegisterSchema),
+    defaultValues: {
+      email: "",
+      username: "",
+      password: "",
+      confirmPassword: "",
+    },
+  });
+
+  const onSubmit = async (data: z.infer<typeof RegisterSchema>) => {
+    const { username, email, password, confirmPassword } = data;
     try {
       const { data } = await axios.post("/signup", {
         username,
         email,
         password,
+        confirmPassword,
       });
       if (data.error) {
         toast.error(data.error);
       } else {
-        setData({} as TRegister);
         toast.success("Register succesful. Welcome!");
         navigate("/login");
       }
@@ -35,31 +51,79 @@ export default function Signup() {
   };
 
   return (
-    <div className=''>
-      <form onSubmit={handleSubmit}>
-        <label>Username</label>
-        <input
-          type='text'
-          placeholder='enter name...'
-          value={data.username}
-          onChange={(e) => setData({ ...data, username: e.target.value })}
-        />
-        <label>Email</label>
-        <input
-          type='email'
-          placeholder='enter email...'
-          value={data.email}
-          onChange={(e) => setData({ ...data, email: e.target.value })}
-        />
-        <label>Password</label>
-        <input
-          type='password'
-          placeholder='enter password...'
-          value={data.password}
-          onChange={(e) => setData({ ...data, password: e.target.value })}
-        />
-        <button type='submit'>Submit</button>
-      </form>
+    <div className='w-full h-screen flex items-center justify-center'>
+      <CardWrapper
+        label='Stwórz swoje konto'
+        title='Zarejestruj'
+        backButtonHref='/login'
+        backButtonLabel='Masz juz swoje konto? Zaloguj się tutaj'
+      >
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
+            <div className='space-y-4'>
+              <FormField
+                control={form.control}
+                name='email'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        type='email'
+                        placeholder='example@gmail.com'
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name='username'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Nazwa u</FormLabel>
+                    <FormControl>
+                      <Input {...field} type='text' placeholder='John Snow' />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name='password'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Password</FormLabel>
+                    <FormControl>
+                      <Input {...field} type='password' placeholder='******' />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name='confirmPassword'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Confirm password</FormLabel>
+                    <FormControl>
+                      <Input {...field} type='password' placeholder='******' />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <Button type='submit' className='w-full'>
+              Register
+            </Button>
+          </form>
+        </Form>
+      </CardWrapper>
     </div>
   );
 }
