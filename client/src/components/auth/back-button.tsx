@@ -1,5 +1,5 @@
+import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
-import { useNavigate } from "react-router-dom";
 
 interface IBackButtonProps {
   label: string;
@@ -7,17 +7,11 @@ interface IBackButtonProps {
 }
 
 export default function BackButton({ label, href }: IBackButtonProps) {
-  const navigate = useNavigate();
-
   return (
-    <Button
-      variant='link'
-      className='font-normal w-full'
-      size='sm'
-      onClick={() => navigate(href)}
-      asChild
-    >
-      <p className='cursor-pointer'>{label}</p>
+    <Button variant='link' className='font-normal w-full' size='sm' asChild>
+      <Link to={href} className='cursor-pointer'>
+        {label}
+      </Link>
     </Button>
   );
 }

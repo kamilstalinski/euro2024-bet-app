@@ -16,9 +16,12 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import { z } from "zod";
+import { UserContext } from "../../context/userContext";
+import { useContext } from "react";
 
 export default function Login() {
   const navigate = useNavigate();
+  const { setUser } = useContext(UserContext);
 
   const form = useForm({
     resolver: zodResolver(LoginSchema),
@@ -38,8 +41,9 @@ export default function Login() {
       if (data.error) {
         toast.error(data.error);
       } else {
+        setUser(data);
         console.log(data);
-        toast.success("Zalogowano pomyślnie. Witamy!");
+        toast.success(data.message);
         navigate("/");
       }
     } catch (error) {

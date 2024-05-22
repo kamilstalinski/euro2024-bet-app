@@ -46,6 +46,8 @@ router.post("/signup", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
+
+    //Check if user exists
     const user = await User.findOne({ email });
     if (!user) {
       return res.json({
@@ -53,24 +55,37 @@ router.post("/login", async (req, res) => {
       });
     }
 
+    //Check if password match
     const validPassword = await bcrypt.compare(password, user.password);
+    if (validPassword) {
+      jwt.sign(
+        { email: user.email, id: user._id, username: user.username },
+        process.env.JWT_SECRET,
+        {},
+        (err, token) => {
+          if (err) throw err;
+          res.cookie("token", token).json(user);
+        },
+      );
+    }
+
     if (!validPassword) {
       return res.json({ error: "Nieprawidłowe hasło" });
     }
-
-    const token = jwt.sign(
-      { username: user.username },
-      process.env.JWT_SECRET,
-      {
-        expiresIn: "4h",
-      },
-    );
-
-    res.cookie("token", token, { httpOnly: true, maxAge: 1440000 });
-
-    return res.json({ status: true, message: "Zalogowano pomyślnie" });
   } catch (err) {
     console.log(err);
+  }
+});
+
+router.get("/profile", (req, res) => {
+  const { token } = req.cookies;
+  if (token) {
+    jwt.verify(token, process.env.JWT_SECRET, {}, (err, user) => {
+      if (err) throw err;
+      res.json(user);
+    });
+  } else {
+    res.json(null);
   }
 });
 

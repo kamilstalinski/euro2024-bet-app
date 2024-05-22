@@ -5,13 +5,14 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import AdminPanel from "./pages/AdminPanel";
 import { Toaster } from "react-hot-toast";
+import { UserContextProvider } from "../context/userContext";
 
 axios.defaults.baseURL = "http://localhost:8000/auth";
 axios.defaults.withCredentials = true;
 
 function App() {
   return (
-    <>
+    <UserContextProvider>
       <Toaster
         position='top-center'
         toastOptions={{
@@ -24,7 +25,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/admin-panel' element={<AdminPanel />} />
       </Routes>
-    </>
+    </UserContextProvider>
   );
 }
 
