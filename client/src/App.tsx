@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import AdminPanel from "./pages/AdminPanel";
 import { Toaster } from "react-hot-toast";
 import { UserContextProvider } from "../context/userContext";
+import ProtectedRoutes from "./utils/ProtectedRoutes";
 
 axios.defaults.baseURL = "http://localhost:8000/auth";
 axios.defaults.withCredentials = true;
@@ -20,10 +21,12 @@ function App() {
         }}
       />
       <Routes>
-        <Route path='/' element={<Home />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/admin-panel' element={<AdminPanel />} />
+        <Route element={<ProtectedRoutes />}>
+          <Route path='/' element={<Home />} />
+          <Route path='/admin-panel' element={<AdminPanel />} />
+        </Route>
       </Routes>
     </UserContextProvider>
   );

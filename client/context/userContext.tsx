@@ -1,14 +1,37 @@
 import axios from "axios";
-import { createContext, useState, useEffect } from "react";
+import {
+  useContext,
+  createContext,
+  useState,
+  useEffect,
+  Dispatch,
+  SetStateAction,
+} from "react";
 
-export const UserContext = createContext({});
+// Definiowanie interfejsu User
+interface User {
+  id: number;
+  username: string;
+  email: string;
+  // inne pola zgodne z danymi zwracanymi przez /profile
+}
+
+// Definiowanie kontekstu z typami
+interface UserContextType {
+  user: User | null;
+  setUser: Dispatch<SetStateAction<User | null>>;
+}
+
+export const UserContext = createContext<UserContextType | undefined>(
+  undefined,
+);
 
 export function UserContextProvider({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<User | null>(null);
 
   const getProfile = async () => {
     try {
@@ -33,3 +56,12 @@ export function UserContextProvider({
     </UserContext.Provider>
   );
 }
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const useUserContext = (): UserContextType => {
+  const context = useContext(UserContext);
+  if (context === undefined) {
+    throw new Error("useUserContext must be used within a UserContextProvider");
+  }
+  return context;
+};

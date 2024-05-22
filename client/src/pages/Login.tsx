@@ -16,12 +16,11 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import { z } from "zod";
-import { UserContext } from "../../context/userContext";
-import { useContext } from "react";
+import { useUserContext } from "../../context/userContext";
 
 export default function Login() {
   const navigate = useNavigate();
-  const { setUser } = useContext(UserContext);
+  const { setUser } = useUserContext();
 
   const form = useForm({
     resolver: zodResolver(LoginSchema),
