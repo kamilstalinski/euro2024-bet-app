@@ -42,8 +42,12 @@ export default function Login() {
       } else {
         setUser(data);
         console.log(data);
-        toast.success(data.message);
-        navigate("/");
+        toast.success(`Zalogowano!`);
+        if (data.role === "admin") {
+          navigate("/admin-panel");
+        } else {
+          navigate("/");
+        }
       }
     } catch (error) {
       console.log(error);

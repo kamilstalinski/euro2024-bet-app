@@ -89,4 +89,18 @@ router.get("/profile", (req, res) => {
   }
 });
 
+router.get("/logout", (req, res) => {
+  res.clearCookie("token");
+  return res.json({ status: true });
+});
+
+router.get("/users", async (req, res) => {
+  try {
+    const users = await User.find({}, { password: 0 });
+    res.json(users);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
 export { router as UserRouter };
