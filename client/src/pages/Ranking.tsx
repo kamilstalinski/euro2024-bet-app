@@ -1,3 +1,4 @@
+import RankTable from "@/components/RankTable";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -25,10 +26,8 @@ export default function Ranking() {
 
   return (
     <>
-      <div>Ranking</div>
-      {users.map((user) => {
-        return <h1 key={user._id}>{user.username}</h1>;
-      })}
+      <h1 className='text-2xl font-bold'>Ranking</h1>
+      <RankTable users={users} />
     </>
   );
 }
