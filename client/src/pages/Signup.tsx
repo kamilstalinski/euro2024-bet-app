@@ -53,7 +53,7 @@ export default function Signup() {
   };
 
   return (
-    <div className='w-full h-screen flex items-center justify-center'>
+    <div className='w-full h-screen flex items-center justify-center bg-[url("assets/auth-background.jpg")] bg-cover bg-no-repeat'>
       <CardWrapper
         label='Stwórz swoje konto'
         title='Zarejestruj się'
@@ -68,7 +68,7 @@ export default function Signup() {
                 name='email'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel className='text-white'>Email</FormLabel>
                     <FormControl>
                       <Input
                         {...field}
@@ -85,7 +85,9 @@ export default function Signup() {
                 name='username'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Nazwa uzytkownika</FormLabel>
+                    <FormLabel className='text-white'>
+                      Nazwa uzytkownika
+                    </FormLabel>
                     <FormControl>
                       <Input {...field} type='text' placeholder='John Snow' />
                     </FormControl>
@@ -98,7 +100,7 @@ export default function Signup() {
                 name='password'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Hasło</FormLabel>
+                    <FormLabel className='text-white'>Hasło</FormLabel>
                     <FormControl>
                       <Input {...field} type='password' placeholder='******' />
                     </FormControl>
@@ -111,7 +113,7 @@ export default function Signup() {
                 name='confirmPassword'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Powtórz hasło</FormLabel>
+                    <FormLabel className='text-white'>Powtórz hasło</FormLabel>
                     <FormControl>
                       <Input {...field} type='password' placeholder='******' />
                     </FormControl>
@@ -120,7 +122,10 @@ export default function Signup() {
                 )}
               />
             </div>
-            <Button type='submit' className='w-full'>
+            <Button
+              type='submit'
+              className='w-full bg-[#F9BF4A] hover:bg-[#FED685] text-black'
+            >
               Utwórz konto
             </Button>
           </form>

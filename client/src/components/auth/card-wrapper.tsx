@@ -18,7 +18,7 @@ export default function CardWrapper({
   children,
 }: ICardWrapperProps) {
   return (
-    <Card className='xl:w-1/4 md:w-1/2 shadow-md'>
+    <Card className='xl:w-1/4 md:w-1/2 shadow-xl bg-[#304FFE] border-none'>
       <CardHeader>
         <AuthHeader label={label} title={title} />
       </CardHeader>

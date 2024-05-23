@@ -16,7 +16,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import { z } from "zod";
-import { useUserContext } from "../../context/userContext";
+import { useUserContext } from "../context/userContext";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -55,7 +55,7 @@ export default function Login() {
   };
 
   return (
-    <div className='w-full h-screen flex items-center justify-center'>
+    <div className='w-full h-screen flex items-center justify-center bg-[url("assets/auth-background.jpg")] bg-cover bg-no-repeat'>
       <CardWrapper
         label='Zaloguj się do swojego konta'
         title='Zaloguj się'
@@ -70,7 +70,7 @@ export default function Login() {
                 name='email'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel className='text-white'>Email</FormLabel>
                     <FormControl>
                       <Input
                         {...field}
@@ -87,7 +87,7 @@ export default function Login() {
                 name='password'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Hasło</FormLabel>
+                    <FormLabel className='text-white'>Hasło</FormLabel>
                     <FormControl>
                       <Input {...field} type='password' placeholder='******' />
                     </FormControl>
@@ -96,7 +96,10 @@ export default function Login() {
                 )}
               />
             </div>
-            <Button type='submit' className='w-full'>
+            <Button
+              type='submit'
+              className='w-full bg-[#F9BF4A] hover:bg-[#FED685] text-black'
+            >
               Zaloguj
             </Button>
           </form>

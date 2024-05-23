@@ -10,7 +10,7 @@ interface UsersProps {
   _id: string;
 }
 
-export default function Ranking() {
+export default function Rank() {
   const [users, setUsers] = useState<UsersProps[]>([]);
 
   useEffect(() => {
@@ -25,9 +25,9 @@ export default function Ranking() {
   }, []);
 
   return (
-    <>
+    <div className='container'>
       <h1 className='text-2xl font-bold'>Ranking</h1>
       <RankTable users={users} />
-    </>
+    </div>
   );
 }

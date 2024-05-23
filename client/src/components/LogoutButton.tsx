@@ -1,7 +1,8 @@
 import axios from "axios";
 import { Button } from "./ui/button";
 import { useNavigate } from "react-router-dom";
-import { useUserContext } from "../../context/userContext";
+import { useUserContext } from "../context/userContext";
+import toast from "react-hot-toast";
 
 export default function LogoutButton() {
   const { setUser } = useUserContext();
@@ -13,6 +14,7 @@ export default function LogoutButton() {
         if (res.data.status) {
           navigate("/login");
           setUser(null);
+          toast.success("Wylogowano!");
         }
       })
       .catch((err) => {

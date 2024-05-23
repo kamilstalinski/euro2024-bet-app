@@ -1,3 +1,3 @@
 export default function AdminPanel() {
-  return <div>AdminPanel</div>;
+  return <div className='container'>AdminPanel</div>;
 }
