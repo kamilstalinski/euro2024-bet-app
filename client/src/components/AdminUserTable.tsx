@@ -28,7 +28,7 @@ export default function AdminUserTable() {
 
   return (
     <div className='mt-4'>
-      <Table>
+      <Table className='bg-[#304FFE] text-white rounded-lg'>
         <TableBody>
           {users.map((user) => {
             return (

@@ -1,0 +1,290 @@
+[
+  {
+    "matchId": 1,
+    "homeTeam": "Niemcy",
+    "awayTeam": "Szkocja",
+    "group": "A",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 2,
+    "homeTeam": "Węgry",
+    "awayTeam": "Szwajcaria",
+    "group": "A",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 3,
+    "homeTeam": "Hiszpania",
+    "awayTeam": "Chorwacja",
+    "group": "B",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 4,
+    "homeTeam": "Włochy",
+    "awayTeam": "Albania",
+    "group": "B",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 5,
+    "homeTeam": "Polska",
+    "awayTeam": "Holandia",
+    "group": "D",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 6,
+    "homeTeam": "Słowenia",
+    "awayTeam": "Dania",
+    "group": "C",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 7,
+    "homeTeam": "Serbia",
+    "awayTeam": "Anglia",
+    "group": "C",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 8,
+    "homeTeam": "Rumunia",
+    "awayTeam": "Ukraina",
+    "group": "E",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 9,
+    "homeTeam": "Belgia",
+    "awayTeam": "Słowacja",
+    "group": "E",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 10,
+    "homeTeam": "Austria",
+    "awayTeam": "Francja",
+    "group": "D",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 11,
+    "homeTeam": "Turcja",
+    "awayTeam": "Gruzja",
+    "group": "F",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 12,
+    "homeTeam": "Portugalia",
+    "awayTeam": "Czechy",
+    "group": "F",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 13,
+    "homeTeam": "Chorwacja",
+    "awayTeam": "Hiszpania",
+    "group": "B",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 14,
+    "homeTeam": "Albania",
+    "awayTeam": "Włochy",
+    "group": "A",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 15,
+    "homeTeam": "Szkocja",
+    "awayTeam": "Niemcy",
+    "group": "A",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 16,
+    "homeTeam": "Szwajcaria",
+    "awayTeam": "Węgry",
+    "group": "C",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 17,
+    "homeTeam": "Dania",
+    "awayTeam": "Słowenia",
+    "group": "B",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 18,
+    "homeTeam": "Anglia",
+    "awayTeam": "Serbia",
+    "group": "E",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 19,
+    "homeTeam": "Ukraina",
+    "awayTeam": "Rumunia",
+    "group": "B",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 20,
+    "homeTeam": "Słowacja",
+    "awayTeam": "Belgia",
+    "group": "C",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 21,
+    "homeTeam": "Francja",
+    "awayTeam": "Austria",
+    "group": "D",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 22,
+    "homeTeam": "Holandia",
+    "awayTeam": "Polska",
+    "group": "D",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 23,
+    "homeTeam": "Gruzja",
+    "awayTeam": "Turcja",
+    "group": "F",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 24,
+    "homeTeam": "Czechy",
+    "awayTeam": "Portugalia",
+    "group": "F",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 25,
+    "homeTeam": "Niemcy",
+    "awayTeam": "Szkocja",
+    "group": "A",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 26,
+    "homeTeam": "Węgry",
+    "awayTeam": "Szwajcaria",
+    "group": "A",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 27,
+    "homeTeam": "Hiszpania",
+    "awayTeam": "Chorwacja",
+    "group": "B",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 28,
+    "homeTeam": "Włochy",
+    "awayTeam": "Albania",
+    "group": "B",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 29,
+    "homeTeam": "Polska",
+    "awayTeam": "Holandia",
+    "group": "D",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 30,
+    "homeTeam": "Słowenia",
+    "awayTeam": "Dania",
+    "group": "C",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 31,
+    "homeTeam": "Serbia",
+    "awayTeam": "Anglia",
+    "group": "C",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 32,
+    "homeTeam": "Rumunia",
+    "awayTeam": "Ukraina",
+    "group": "E",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 33,
+    "homeTeam": "Belgia",
+    "awayTeam": "Słowacja",
+    "group": "E",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 34,
+    "homeTeam": "Austria",
+    "awayTeam": "Francja",
+    "group": "D",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 35,
+    "homeTeam": "Turcja",
+    "awayTeam": "Gruzja",
+    "group": "F",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "matchId": 36,
+    "homeTeam": "Portugalia",
+    "awayTeam": "Czechy",
+    "group": "F",
+    "homeScore": 0,
+    "awayScore": 0
+  }
+]

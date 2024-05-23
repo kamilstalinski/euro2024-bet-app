@@ -1,18 +1,8 @@
-import express from "express";
 import bcrypt from "bcrypt";
-import cors from "cors";
-const router = express.Router();
 import jwt from "jsonwebtoken";
 import { User } from "../models/User.js";
 
-router.use(
-  cors({
-    credentials: true,
-    origin: "http://localhost:5173",
-  }),
-);
-
-router.post("/signup", async (req, res) => {
+export const registerUser = async (req, res) => {
   try {
     const { username, email, password } = req.body;
 
@@ -41,9 +31,9 @@ router.post("/signup", async (req, res) => {
   } catch (err) {
     console.log(err);
   }
-});
+};
 
-router.post("/login", async (req, res) => {
+export const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
 
@@ -75,9 +65,9 @@ router.post("/login", async (req, res) => {
   } catch (err) {
     console.log(err);
   }
-});
+};
 
-router.get("/profile", (req, res) => {
+export const getProfile = (req, res) => {
   const { token } = req.cookies;
   if (token) {
     jwt.verify(token, process.env.JWT_SECRET, {}, (err, user) => {
@@ -87,20 +77,9 @@ router.get("/profile", (req, res) => {
   } else {
     res.json(null);
   }
-});
+};
 
-router.get("/logout", (req, res) => {
+export const logoutUser = (req, res) => {
   res.clearCookie("token");
   return res.json({ status: true });
-});
-
-router.get("/users", async (req, res) => {
-  try {
-    const users = await User.find({}, { password: 0 });
-    res.json(users);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
-export { router as UserRouter };
+};
