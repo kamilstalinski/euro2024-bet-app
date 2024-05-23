@@ -25,8 +25,8 @@ export default function Rank() {
   }, []);
 
   return (
-    <div className='container'>
-      <h1 className='text-2xl font-bold'>Ranking</h1>
+    <div className='container mt-8'>
+      <h1 className='text-2xl font-bold'>Ranking uzytkowników</h1>
       <RankTable users={users} />
     </div>
   );

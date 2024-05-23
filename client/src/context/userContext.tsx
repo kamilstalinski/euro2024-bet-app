@@ -10,10 +10,10 @@ import {
 
 // Definiowanie interfejsu User
 interface User {
+  role: string;
   id: number;
   username: string;
   email: string;
-  // inne pola zgodne z danymi zwracanymi przez /profile
 }
 
 // Definiowanie kontekstu z typami

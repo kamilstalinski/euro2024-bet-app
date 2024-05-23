@@ -55,7 +55,7 @@ export default function Login() {
   };
 
   return (
-    <div className='w-full h-screen flex items-center justify-center bg-[url("assets/auth-background.jpg")] bg-cover bg-no-repeat'>
+    <div className='w-full h-screen flex items-center justify-center bg-[url("assets/auth-background.jpg")] bg-cover bg-no-repeat bg-center'>
       <CardWrapper
         label='Zaloguj się do swojego konta'
         title='Zaloguj się'

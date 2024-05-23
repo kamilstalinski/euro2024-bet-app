@@ -53,7 +53,7 @@ export default function Signup() {
   };
 
   return (
-    <div className='w-full h-screen flex items-center justify-center bg-[url("assets/auth-background.jpg")] bg-cover bg-no-repeat'>
+    <div className='w-full h-screen flex items-center justify-center bg-[url("assets/auth-background.jpg")] bg-cover bg-no-repeat bg-center'>
       <CardWrapper
         label='Stwórz swoje konto'
         title='Zarejestruj się'

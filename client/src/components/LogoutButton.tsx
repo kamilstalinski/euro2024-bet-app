@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 export default function LogoutButton() {
   const { setUser } = useUserContext();
   const navigate = useNavigate();
+
   const handleLogout = () => {
     axios
       .get("/logout")
@@ -23,7 +24,10 @@ export default function LogoutButton() {
   };
 
   return (
-    <Button variant='destructive' onClick={handleLogout}>
+    <Button
+      className='bg-[#F9BF4A] hover:bg-[#FED685] text-black'
+      onClick={handleLogout}
+    >
       Wyloguj
     </Button>
   );
