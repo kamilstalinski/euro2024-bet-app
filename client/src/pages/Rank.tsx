@@ -16,7 +16,9 @@ export default function Rank() {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await axios.get("/users", { withCredentials: true });
+        const { data } = await axios.get("/auth/users", {
+          withCredentials: true,
+        });
         setUsers(data);
       } catch (err) {
         console.log(err);

@@ -20,7 +20,7 @@ export default function Navbar({ user }: NavbarProps) {
               className='mr-4 brightness-0 saturate-100 invert sepia-0 hue-rotate-60'
             />
           </Link>
-          <Link to='/grupy'>Grupy</Link>
+          <Link to='/formularz'>Formularz</Link>
           <Link to='/ranking'>Ranking</Link>
         </div>
         <div className='h-30 flex items-center justify-center space-x-4'>

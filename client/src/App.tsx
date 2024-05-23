@@ -12,7 +12,7 @@ import PrivateRoutes from "./utils/PrivateRoutes";
 import AdminRoutes from "./utils/AdminRoutes";
 import Matches from "./pages/Matches";
 
-axios.defaults.baseURL = "http://localhost:8000/auth";
+axios.defaults.baseURL = "http://localhost:8000";
 axios.defaults.withCredentials = true;
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
         <Route element={<PrivateRoutes />}>
           <Route path='/' element={<Home />} />
           <Route path='/ranking' element={<Rank />} />
-          <Route path='/grupy' element={<Matches />} />
+          <Route path='/formularz' element={<Matches />} />
           <Route element={<AdminRoutes />}>
             <Route path='/admin-panel' element={<AdminPanel />} />
           </Route>

@@ -33,7 +33,7 @@ export default function Login() {
   const onSubmit = async (data: z.infer<typeof LoginSchema>) => {
     const { email, password } = data;
     try {
-      const { data } = await axios.post("/login", {
+      const { data } = await axios.post("/auth/login", {
         email,
         password,
       });
@@ -41,7 +41,6 @@ export default function Login() {
         toast.error(data.error);
       } else {
         setUser(data);
-        console.log(data);
         toast.success(`Zalogowano!`);
         if (data.role === "admin") {
           navigate("/admin-panel");

@@ -24,4 +24,4 @@ router.get("/profile", getProfile);
 router.get("/logout", logoutUser);
 router.get("/users", getUsers);
 
-export { router as UserRouter };
+export { router as AuthRouter };

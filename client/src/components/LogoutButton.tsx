@@ -10,7 +10,7 @@ export default function LogoutButton() {
 
   const handleLogout = () => {
     axios
-      .get("/logout")
+      .get("/auth/logout")
       .then((res) => {
         if (res.data.status) {
           navigate("/login");

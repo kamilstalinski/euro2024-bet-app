@@ -36,7 +36,7 @@ export function UserContextProvider({
   const getProfile = async () => {
     try {
       if (!user) {
-        axios.get("/profile").then(({ data }) => {
+        axios.get("/auth/profile").then(({ data }) => {
           setUser(data);
         });
       }

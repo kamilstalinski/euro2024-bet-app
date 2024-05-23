@@ -33,7 +33,7 @@ export default function Signup() {
   const onSubmit = async (data: z.infer<typeof RegisterSchema>) => {
     const { username, email, password } = data;
     try {
-      const { data } = await axios.post("/signup", {
+      const { data } = await axios.post("/auth/signup", {
         username,
         email,
         password,
