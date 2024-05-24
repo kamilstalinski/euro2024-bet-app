@@ -6,11 +6,11 @@ import Home from "./pages/Home";
 import AdminPanel from "./pages/AdminPanel";
 import { Toaster } from "react-hot-toast";
 import { useUserContext } from "./context/userContext";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/layout/Navbar";
 import Rank from "./pages/Rank";
 import PrivateRoutes from "./utils/PrivateRoutes";
 import AdminRoutes from "./utils/AdminRoutes";
-import Matches from "./pages/Matches";
+import Matches from "./components/Matches";
 
 axios.defaults.baseURL = "http://localhost:8000";
 axios.defaults.withCredentials = true;
@@ -18,7 +18,7 @@ axios.defaults.withCredentials = true;
 function App() {
   const { user } = useUserContext();
   return (
-    <>
+    <div>
       <Toaster
         position='bottom-center'
         toastOptions={{
@@ -38,7 +38,7 @@ function App() {
         <Route path='/signup' element={<Signup />} />
         <Route path='/login' element={<Login />} />
       </Routes>
-    </>
+    </div>
   );
 }
 

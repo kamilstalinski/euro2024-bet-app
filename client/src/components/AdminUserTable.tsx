@@ -29,13 +29,14 @@ export default function AdminUserTable() {
   }, []);
 
   return (
-    <div className='mt-4'>
-      <Table className='bg-[#304FFE] text-white rounded-lg'>
+    <div className='container mt-4'>
+      <Table className='bg-white text-[#1A313C] border rounded-lg'>
         <TableBody>
           {users.map((user) => {
             return (
               <TableRow key={user._id}>
                 <TableCell className='font-medium'>{user.username}</TableCell>
+                <TableCell className='font-medium'>{user.email}</TableCell>
                 <TableCell className='text-right'>
                   <Button variant='destructive'>
                     <Trash2 className='mr-2 h-4 w-4' /> Usuń

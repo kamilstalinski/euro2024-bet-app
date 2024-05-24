@@ -23,3 +23,13 @@ export const LoginSchema = z.object({
     message: "Hasło musi zawierać minimum 6 znaków",
   }),
 });
+
+export const MatchPredictionSchema = z.object({
+  matches: z.array(
+    z.object({
+      matchId: z.number(),
+      homeScore: z.number().default(0),
+      awayScore: z.number().default(0),
+    }),
+  ),
+});

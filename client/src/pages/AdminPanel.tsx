@@ -1,33 +1,28 @@
 import AdminMatchesForm from "@/components/AdminMatchesForm";
 import AdminUserTable from "@/components/AdminUserTable";
-import { Button } from "@/components/ui/button";
+import Header from "@/components/layout/Header";
+import HeaderLink from "@/components/layout/HeaderLink";
 import { useState } from "react";
 
 export default function AdminPanel() {
   const [selectedView, setSelectedView] = useState("users");
 
+  const handleClick = (selectedView: string) => {
+    setSelectedView(selectedView);
+  };
+
   return (
-    <div className='container mt-8'>
-      <div className='flex space-x-4'>
-        <Button
-          className={`bg-[#304FFE] hover:bg-[#5B74FF] ${
-            selectedView === "users" ? "bg-primary hover:bg-primary/90" : ""
-          }`}
-          onClick={() => setSelectedView("users")}
-        >
-          Uzytkownicy
-        </Button>
-        <Button
-          className={`bg-[#304FFE] hover:bg-[#5B74FF] ${
-            selectedView === "results" ? "bg-primary hover:bg-primary/90" : ""
-          }`}
-          onClick={() => setSelectedView("results")}
-        >
-          Wyniki
-        </Button>
-      </div>
+    <>
+      <Header>
+        <HeaderLink
+          links={["users", "results"]}
+          labels={["Użytkownicy", "Wyniki"]}
+          selectedView={selectedView}
+          handleClick={handleClick}
+        />
+      </Header>
       {selectedView === "users" && <AdminUserTable />}
       {selectedView === "results" && <AdminMatchesForm />}
-    </div>
+    </>
   );
 }
